@@ -99,32 +99,30 @@
     <div style="background-color: #f8d7da; color: #721c24; padding: 10px; margin-bottom: 10px;">{{ Session::get('mensaje') }}</div>
     @endif
 
-    <h1>Listado de Películas</h1>
+    <h1>Listado de Directores</h1>
 
-    <a href="{{ url('pelicula/create') }}" style="display: inline-block; margin-bottom: 10px;">Registrar nueva Película</a>
+    <a href="{{ url('director/create') }}" style="display: inline-block; margin-bottom: 10px;">Registrar nuevo Director</a>
 
     <table>
         <thead>
             <tr>
                 <th>#</th>
-                <th>Nombre</th>
-                <th>Productora</th>
-                <th>Género</th>
-                <th>Descripción</th>
+                <th>Nom</th>
+                <th>Data</th>
+                <!-- Incluye los otros campos que sean relevantes para un Director -->
                 <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ( $peliculas as $pelicula ) 
+            @foreach ( $directors as $director ) 
             <tr>
-                <td>{{ $pelicula->id }}</td>
-                <td>{{ $pelicula->Nombre}}</td>
-                <td>{{ $pelicula->Productora}}</td>
-                <td>{{ $pelicula->Genero}}</td>
-                <td>{{ $pelicula->Descripcion}}</td>
-                <td class="actions">
-                    <a href="{{ url('/pelicula/'.$pelicula->id.'/edit') }}">Editar</a>
-                    <form action="{{ url('/pelicula/'.$pelicula->id) }}" method="post">
+                <td>{{ $director->id }}</td>
+                <td>{{ $director->Nom}}</td>
+                <td>{{ $director->Data}}</td>
+                                <!-- Incluye los otros campos que sean relevantes para un Director -->
+                                <td class="actions">
+                    <a href="{{ url('/director/'.$director->id.'/edit') }}">Editar</a>
+                    <form action="{{ url('/director/'.$director->id ) }}" method="post">
                         @csrf
                         {{ method_field('DELETE') }}
                         <input type="submit" onclick="return confirm('¿Estás seguro de que quieres borrar?')" value="Borrar">

@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PeliculaController;
+use App\Http\Controllers\DirectorController;
+use App\Http\Controllers\ActorController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +29,8 @@ Route::get('/', function () {
 Route::get('pelicula/create',[PeliculaController::class,'create']);*/
 
 Route::resource('pelicula',PeliculaController::class);
+
+
+Route::resource('director', DirectorController::class);
+
+Route::resource('actor', ActorController::class);

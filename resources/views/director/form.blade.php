@@ -56,27 +56,20 @@
             margin-top: 16px;
         }
     </style>
-</head>
-<body>
-    <h2>{{ $modo }} Película</h2>
 
-    <form>
-        <label for="Nombre">Nombre</label>
-        <input type="text" name="Nombre" value="{{ isset($pelicula->Nombre) ? $pelicula->Nombre : '' }}" id="Nombre">
-      
-        <label for="Genero">Género</label>
-        <input type="text" name="Genero" value="{{ isset($pelicula->Genero) ? $pelicula->Genero : '' }}" id="Genero">
-      
-        <label for="Productora">Productora</label>
-        <input type="text" name="Productora" value="{{ isset($pelicula->Productora) ? $pelicula->Productora : '' }}" id="Productora">
-      
-        <label for="Descripcion">Descripción</label>
-        <input type="text" name="Descripcion" value="{{ isset($pelicula->Descripcion) ? $pelicula->Descripcion : '' }}" id="Descripcion">
-      
-        <div class="form-footer">
-            <input type="submit" value="{{ $modo }} Película">
-            <a href="{{ url('pelicula') }}">Regresar</a>
-        </div>
-    </form>
-</body>
-</html>
+<h2>{{ $modo }} Director</h2>
+
+<form>
+  <label for="Nom">Nombre</label>
+  <input type="text" name="Nom" value="{{ isset($director->Nom) ? $director->Nom : '' }}" id="Nom">
+  
+  <label for="Data ">Fecha de nacimiento</label>
+  <input type="date" name="Data" value="{{ isset($director->Data) ? $director->Data : '' }}" id="Data ">
+
+  <div class="form-footer">
+  <input type="submit" value="{{ $modo }} Director">            
+  <a href="{{ url('pelicula') }}">Regresar</a>
+</div>
+ 
+</form>
+

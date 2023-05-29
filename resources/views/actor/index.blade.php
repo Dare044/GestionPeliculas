@@ -96,38 +96,32 @@
     </nav>
 
     @if (Session::has('mensaje'))
-    <div style="background-color: #f8d7da; color: #721c24; padding: 10px; margin-bottom: 10px;">{{ Session::get('mensaje') }}</div>
+    {{ Session::get('mensaje') }}
     @endif
-
-    <h1>Listado de Películas</h1>
-
-    <a href="{{ url('pelicula/create') }}" style="display: inline-block; margin-bottom: 10px;">Registrar nueva Película</a>
+    <h1>Listado de Actores</h1>
+    <a href="{{ url('actor/create') }}">Registrar nuevo Actor</a>
 
     <table>
         <thead>
             <tr>
                 <th>#</th>
-                <th>Nombre</th>
-                <th>Productora</th>
-                <th>Género</th>
-                <th>Descripción</th>
+                <th>Nom</th>
+                <!-- Incluye los otros campos que sean relevantes para un Actor -->
                 <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ( $peliculas as $pelicula ) 
+            @foreach ( $actors as $actor ) 
             <tr>
-                <td>{{ $pelicula->id }}</td>
-                <td>{{ $pelicula->Nombre}}</td>
-                <td>{{ $pelicula->Productora}}</td>
-                <td>{{ $pelicula->Genero}}</td>
-                <td>{{ $pelicula->Descripcion}}</td>
+                <td>{{ $actor->id }}</td>
+                <td>{{ $actor->Nom}}</td>
+                <!-- Incluye los otros campos que sean relevantes para un Actor -->
                 <td class="actions">
-                    <a href="{{ url('/pelicula/'.$pelicula->id.'/edit') }}">Editar</a>
-                    <form action="{{ url('/pelicula/'.$pelicula->id) }}" method="post">
+                    <a href="{{ url('/actor/'.$actor->id.'/edit') }}">Editar</a>
+                    <form action="{{ url('/actor/'.$actor->id ) }}" method="post">
                         @csrf
                         {{ method_field('DELETE') }}
-                        <input type="submit" onclick="return confirm('¿Estás seguro de que quieres borrar?')" value="Borrar">
+                        <input type="submit" onclick="return confirm('¿Quieres borrar?')" value="Borrar">
                     </form>
                 </td>
             </tr>
@@ -136,4 +130,3 @@
     </table>
 </body>
 </html>
-
